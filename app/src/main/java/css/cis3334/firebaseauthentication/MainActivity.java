@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         textViewStatus = (TextView) findViewById(R.id.textViewStatus);
         editTextEmail = (EditText) findViewById(R.id.editTextEmail);
         editTextPassword = (EditText) findViewById(R.id.editTextPassword);
@@ -79,15 +80,14 @@ public class MainActivity extends AppCompatActivity {
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
         //updateUI(currentUser);
-
         if (currentUser != null) {
             // User is signed in
-            Log.d("CIS3334", "onAuthStateChanged:signed_in" + currentUser.getUid());
+            Log.d("CIS3334", "onAuthStateChanged:signed_in:" + currentUser.getUid());
             Toast.makeText(MainActivity.this, "User Signed In", Toast.LENGTH_LONG).show();
             textViewStatus.setText("Signed In");
         } else {
             // User is signed out
-            Log.d("CIS3334", "onAuthStateChanged:signed_out" + currentUser.getUid());
+            Log.d("CIS3334", "onAuthStateChanged:signed_out");
             Toast.makeText(MainActivity.this, "User Signed Out", Toast.LENGTH_LONG).show();
             textViewStatus.setText("Signed Out");
         }
@@ -153,8 +153,6 @@ public class MainActivity extends AppCompatActivity {
     private void googleSignIn() {
 
     }
-
-
 
 
 }
